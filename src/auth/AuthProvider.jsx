@@ -1,5 +1,4 @@
 import { useEffect, useReducer, useState } from 'react'
-import { InfoUsers } from '../utils/InfoUsers';
 import { AuthContext } from './AuthContext'
 import { authReducer } from './authReducer'
 
@@ -17,7 +16,8 @@ export default function AuthProvider({children}) {
     if(user.user){
       sessionStorage.setItem('token', user.user.token);
     }
-    const existe = InfoUsers.roleExiste('ROLE_ADMIN');
+    const existe = true
+    //InfoUsers.roleExiste('ROLE_ADMIN');
     setIsAdmin(existe);
   }, [user])
 

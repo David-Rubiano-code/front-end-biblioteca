@@ -1,4 +1,4 @@
-import { axiosConfig } from "../configuration/axiosConfig";
+import { axiosConfig } from "../../configuration/axiosConfig";
 
 const headers = {
     'Content-Type': 'application/json'
@@ -6,8 +6,8 @@ const headers = {
 
 export const login = async (user) => {
         const data = {
-            email: user.username,
-            contrasena: user.password
+            documento: user.documento,
+            password: user.password
         }
         return await axiosConfig.post(
                 process.env.REACT_APP_AUTH_URL,

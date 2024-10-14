@@ -6,7 +6,7 @@ import { AuthContext } from '../../auth/AuthContext';
 import Swal from 'sweetalert2';
 import { messages } from '../../utils/messages';
 import { types } from '../../types/types';
-import { login } from '../../services/AuthService';
+import { login } from '../../services/public/AuthService';
 
 export default function Login() {
 
@@ -18,12 +18,12 @@ export default function Login() {
   const { dispatch } = useContext(AuthContext);
   const [req] = useState(true);
   const [usr, setUsr] = useState({
-    username: '',
+    documento: '',
     password: '',
     captcha: ''
   });
   const [errors, setErrors] = useState({
-    username: '',
+    documento: '',
     password: '',
   })
 
@@ -38,24 +38,12 @@ export default function Login() {
   const handleValidation = () => {
     let errors = {};
     let isValid = true;
-    if (!usr.username) {
+    if (!usr.documento) {
       isValid = false;
-      errors["username"] = "Email requerido";
-    } else
-      if (typeof usr.username !== "undefined" && usr.username !== '') {
-        let lastAtPos = usr.username.lastIndexOf('@');
-        let lastDotPos = usr.username.lastIndexOf('.');
-
-        if (!(lastAtPos < lastDotPos && lastAtPos > 0
-          && usr.username.indexOf('@@') === -1
-          && lastDotPos > 2
-          && (usr.username.length - lastDotPos) > 2)) {
-          isValid = false;
-          errors["username"] = "Email no válido";
-        }
-      } else {
-        errors["username"] = "";
-      }
+      errors["documento"] = "Documento requerido";
+    } else {
+      errors["documento"] = "";
+    }
 
     if (!usr.password) {
       isValid = false;
@@ -98,14 +86,14 @@ export default function Login() {
         })
         .catch(e => {
           console.log(e)
-          if(e.message){
+          if (e.message) {
             setLoading(false)
             return Swal.fire('Error', e.message, 'error')
           }
-          if(e.response) {
+          if (e.response) {
             const { data } = e.response;
             console.log(data);
-            if (data.msg){
+            if (data.msg) {
               setLoading(false)
               return Swal.fire('Error', data.msg, 'error')
             }
@@ -127,45 +115,33 @@ export default function Login() {
     <section className="vh-100">
       <div className="container-fluid h-custom">
         <div className="row d-flex justify-content-center align-items-center h-100">
-          <img src="/logo.jpg"
-            className="d-block img img-fluid img-thumbnail radius" alt="Logo" />
+          <img
+            src="/logo.png"
+            className="d-block img img-fluid img-thumbnail radius"
+            alt="Logo"
+          />
           <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
             <form onSubmit={sendLogin}>
-              <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                <p className="lead fw-normal mb-0 me-3">Ingresar con</p>
-                <button type="button" className="btn btn-primary mx-1 radius">
-                  <i className="fab fa-facebook-f fa-lg"></i>
-                </button>
-
-                <button type="button" className="btn btn-primary mx-1 radius">
-                  <i className="fab fa-google fa-lg"></i>
-                </button>
-
-                <button type="button" className="btn btn-primary mx-1 radius">
-                  <i className="fab fa-linkedin-in fa-lg"></i>
-                </button>
-              </div>
-
-              <div className="divider d-flex align-items-center my-4">
-                <p className="text-center fw-bold mx-3 mb-0">Ó</p>
+              <div className="divider d-flex align-items-center my-2">
+                <p className="text-center fw-bold mx-3 mb-0">Ingreso</p>
               </div>
 
               <div className="form-floating mb-3">
                 <input
                   autoComplete={off}
-                  name="username"
+                  name="documento"
                   onChange={handleChange}
                   required={req}
-                  type="email"
+                  type="text"
                   id="form3Example3"
                   className="form-control"
-                  placeholder="Ingrese un e-mail válido"
+                  placeholder="Ingrese documento"
                 />
                 <label
                   className="form-label"
                   htmlFor="form3Example3"
                 >
-                  Email
+                  Documento
                 </label>
               </div>
 
@@ -180,7 +156,9 @@ export default function Login() {
                   className="form-control"
                   placeholder="Ingrese password"
                 />
-                <label className="form-label" htmlFor="form3Example4">Contraseña</label>
+                <label className="form-label" htmlFor="form3Example4">
+                  Contraseña
+                </label>
               </div>
 
               <div className="d-flex justify-content-between align-items-center">
@@ -206,7 +184,7 @@ export default function Login() {
 
               <div className="text-center text-lg-start mt-4 pt-2">
                 <button
-                  disabled={(loading ? true : false) || (usr.username.length == 0 || usr.password.length == 0)}
+                  disabled={(loading ? true : false) || (usr.documento.length == 0 || usr.password.length == 0)}
                   type="submit"
                   className="btn btn-primary btn-lg"
                 >

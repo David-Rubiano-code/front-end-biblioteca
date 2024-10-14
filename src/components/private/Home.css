@@ -17,3 +17,12 @@
     animation: fadeIn 0.5s ease-in-out;
     opacity: 1;
   }
+
+  .radius {
+    max-width: 520px;
+}
+.container {
+  margin-left: 80px; /* Deja espacio para la barra lateral */
+  padding-top: 70px; /* Deja espacio para la barra superior */
+  text-align: center;
+}

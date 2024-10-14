@@ -3,12 +3,11 @@
     padding-left: 2.5rem; padding-right: 2.5rem;
 }
 .bg-ecorecycle {
-    background-color: #024E50;
+    background-color: #C52331;
 }
 
 .radius {
-    max-width: 60%;
-    border-radius: 50%;
+    max-width: 520px;
 }
 
 .divider:after,

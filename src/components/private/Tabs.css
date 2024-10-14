@@ -1,17 +1,26 @@
-#tab-main {
-    background-color: #024E50;
-    color: white;
-
-    font-weight: bold;
+#tab-main.navbar.fixed-start {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80px; /* Puedes ajustar el ancho según tus necesidades */
+    background-color: black; /* Color de fondo de la barra */
+    z-index: 1030;
 }
 
-#tab-main a{
-    color: white;
+.nav-pills .nav-link {
+    padding: 20px 0; /* Aumenta el espacio vertical entre los íconos */
+    color: white; /* Color de los íconos */
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    color: white;
-    background-color: #098680;
+.nav-pills .nav-link i {
+    display: block;
+    margin-bottom: 16px; /* Aumenta el margen entre los íconos */
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #e9ecef;
+    color: #08c2179c; /* Cambia el color del icono al hacer hover */
 }
 
 

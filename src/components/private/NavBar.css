@@ -1,15 +1,38 @@
 #nav-main {
-    background-color: #024E50;
+    background-color: black;
     color: white;
     font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1031; /* Asegura que esté encima de otros elementos */
+    height: 70px; /* Define la altura de la barra superior */
 }
 
-#btn-toggle{
+#btn-toggle {
     color: white;
-    background-color: #fbfbfb;
 }
 
-#titulo{
+#titulo {
     font-size: larger;
     font-weight: 600;
+}
+
+/* Ajustes para la barra lateral */
+#tab-main.navbar.fixed-start {
+    position: fixed;
+    top: 70px; /* Ajusta para empezar debajo de la barra superior */
+    left: 0;
+    height: calc(100% - 70px); /* Calcula la altura tomando en cuenta la barra superior */
+    width: 80px;
+    background-color: black;
+    z-index: 1030; /* Debe estar debajo de la barra superior */
+}
+
+/* Espaciado del contenido principal */
+.main-content {
+    margin-left: 80px; /* Deja espacio para la barra lateral */
+    margin-top: 70px;  /* Deja espacio para la barra superior */
+    padding: 20px;
 }

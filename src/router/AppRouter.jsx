@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import PrivateRoute from './privates/PrivateRoute'
-import EcoRecycleRoutes from './privates/EcoRecycleRoutes'
+import BiblioRoutes from './privates/BiblioRoutes'
 import PublicRoute from './publics/PublicRoute'
 import Public from './publics/Publics'
 
@@ -12,7 +12,7 @@ export default function AppRouter() {
           path="/pr/*" 
           element={
             <PrivateRoute>
-              <EcoRecycleRoutes />
+              <BiblioRoutes />
             </PrivateRoute>
           } 
         />
