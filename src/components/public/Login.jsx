@@ -49,57 +49,66 @@ export default function Login() {
   };
 
   return (
-    <section className="vh-100">
-      <div className="container-fluid h-custom">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-        <img src="/logo.png" className="img-fluid img-thumbnail" alt="Logo" style={{ width: '300px' }} />
-          <div className="col-md-8 col-lg-6 col-xl-5">
-            <form onSubmit={handleLogin}>
-              <div className="form-outline mb-4">
-                <input
-                  type="text"
-                  id="documento"
-                  name="documento"
-                  className="form-control form-control-lg"
-                  value={usr.documento}
-                  onChange={(e) => setUsr({ ...usr, documento: e.target.value })}
-                  placeholder="Ingrese su documento"
-                />
-                <label className="form-label" htmlFor="documento">Documento</label>
-              </div>
+    <section className="login-container">
+      {/* Barra negra superior */}
+      <div className="black-bar"></div>
 
-              <div className="form-outline mb-4">
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  className="form-control form-control-lg"
-                  value={usr.password}
-                  onChange={(e) => setUsr({ ...usr, password: e.target.value })}
-                  placeholder="Ingrese su contraseña"
-                />
-                <label className="form-label" htmlFor="password">Contraseña</label>
-              </div>
+      <div className="login-content">
+        <div className="container-fluid h-custom">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <img src="/logo.png" className="img-fluid img-thumbnail" alt="Logo" style={{ width: '700px' }} />
+            <div className="col-md-8 col-lg-6 col-xl-5">
+              <form onSubmit={handleLogin}>
+                <div className="form-outline">
+                  <h4>Ingreso a la biblioteca</h4>
+                  <input
+                    type="text"
+                    id="documento"
+                    name="documento"
+                    className="form-control form-control-lg"
+                    value={usr.documento}
+                    onChange={(e) => setUsr({ ...usr, documento: e.target.value })}
+                    placeholder="Ingrese su documento"
+                  />
+                  <label className="form-label" htmlFor="documento">Documento</label>
+                </div>
 
-              <div className="form-outline mb-4">
-                <LoadCanvasTemplateNoReload />
-                <input
-                  type="text"
-                  id="captcha"
-                  name="captcha"
-                  className="form-control form-control-lg"
-                  value={usr.captcha}
-                  onChange={(e) => setUsr({ ...usr, captcha: e.target.value })}
-                  placeholder="Ingrese el captcha"
-                />
-                <label className="form-label" htmlFor="captcha">Captcha</label>
-              </div>
+                <div className="form-outline">
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    className="form-control form-control-lg"
+                    value={usr.password}
+                    onChange={(e) => setUsr({ ...usr, password: e.target.value })}
+                    placeholder="Ingrese su contraseña"
+                  />
+                  <label className="form-label" htmlFor="password">Contraseña</label>
+                </div>
 
-              <button type="submit" className="btn btn-primary btn-lg btn-block">Iniciar Sesión</button>
-            </form>
+                <div className="form-outline">
+                  <LoadCanvasTemplateNoReload />
+                  <input
+                    type="text"
+                    id="captcha"
+                    name="captcha"
+                    className="form-control form-control-lg"
+                    value={usr.captcha}
+                    onChange={(e) => setUsr({ ...usr, captcha: e.target.value })}
+                    placeholder="Ingrese el captcha"
+                  />
+                  <label className="form-label" htmlFor="captcha">Captcha</label>
+                </div>
+
+                <button type="submit" className="btn btn-dark btn-lg btn-block">Iniciar Sesión</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Barra negra inferior */}
+      <div className="black-bar"></div>
     </section>
   );
 }
