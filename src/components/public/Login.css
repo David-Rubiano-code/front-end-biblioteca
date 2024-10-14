@@ -1,40 +1,38 @@
-/* Barra negra superior e inferior */
-.black-bar {
-    height: 50px;
+/* Barra negra arriba y abajo */
+.barra-negra {
+    width: 100%;
+    height: 50px; /* Ajusta la altura según lo que necesites */
     background-color: #000000;
-}
-
-/* Estilos para la disposición del login */
-.login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh; /* Asegura que todo el contenido use el 100% de la pantalla */
-    overflow: hidden; /* Evita el desplazamiento vertical */
-}
-
-.login-content {
-    flex-grow: 1; /* Permite que el contenido del login ocupe el espacio disponible */
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centra el formulario vertical y horizontalmente */
-}
-
-/* Elimina márgenes y ajustes que causen desbordamiento */
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Asegura que no haya desplazamiento en la página */
-}
-
-/* Otros estilos */
-.h-custom {
-    height: auto; /* Evita que el contenedor del login ocupe más espacio del necesario */
-}
-
-@media (max-width: 450px) {
+  }
+  
+  .h-custom {
+    height: calc(100% - 100px); /* 100px para compensar las barras negras arriba y abajo */
+  }
+  
+  @media (max-width: 450px) {
     .h-custom {
-        height: 85%;
+      height: 85%;
     }
-}
-
+  }
+  
+  .btn-primary-1 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  
+  .bg-ecorecycle {
+    background-color: #000000;
+  }
+  
+  .radius {
+    max-width: 520px;
+  }
+  
+  .divider:after,
+  .divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #000000;
+  }
+  
