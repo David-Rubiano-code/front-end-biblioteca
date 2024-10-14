@@ -54,7 +54,7 @@ export default function Home() {
 
     setTimeout(() => {
       listarPrestamos();
-    }, 500);
+    }, 100);
   }, []);
   useEffect(() => {
     listarEjemplares()
